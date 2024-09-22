@@ -4,15 +4,12 @@ the same speed expressed in kilometres/hour. """
 
 def mh2kh(s) -> float:
     return s * 1.60934
-print(mh2kh(10))  # Output: 16.0934
 """ 2. (2 points) Two numbers a and b are called pythagorean pair if both a and b are integers and there
 exists an integer c such that a^2 + b^2 = c^2. Write a function pythagorean_pair(a,b) that takes two
 integers a and b as input and returns True if a and b are pythagorean pair and False otherwise. """
 def pythagorean_pair(a, b) -> bool:
     return (a**2 + b**2)**0.5 % 1 == 0
 
-print(pythagorean_pair(3, 4))  # Output: True
-print(pythagorean_pair(5, 13))  # Output: False
 
 """ 3. (2 points) Write a function in_out(xs,ys,side) that takes three numbers as input, where side is
 non-negative. Here xs and ys represent the x and y coordinates of the bottom left corner of a
@@ -36,7 +33,6 @@ n is safe and False otherwise."""
 
 def safe(n) :
     return not( n//10 == 9 or n%9 == 0 or n % 10 == 9)
-print(safe(17))
 """
 5. (2 points) Write a function quote_maker(quote, name, year) that returns a sentence, i.e. a
 string of the following form: In year, a person called name said: “quote” See the next
@@ -102,6 +98,126 @@ same colours, but you must use at least 2
 distinct colours to fill some regions of the
 court. Your figure does not have to be identical 
 to mine, but it should be close enough."""
+#function to draw and fill a recatangle
+import turtle
+def draw_rectangle(t, width, height, color):
+    t.fillcolor(color)
+    t.begin_fill()
+    for _ in range(2):
+        t.forward(width)
+        t.left(90)
+        t.forward(height)
+        t.left(90)
+    t.end_fill()
+
+def draw_court():
+    # Setup turtle
+    screen = turtle.Screen()
+    screen.bgcolor("white")
+    screen.setup(width=1080, height=720)
+    t = turtle.Turtle()
+    t.speed(0)
+
+    # Helper functions
+
+
+    def draw_circle(t, radius, color):
+        t.fillcolor(color)
+        t.begin_fill()
+        t.circle(radius)
+        t.end_fill()
+        
+    def draw_half_circle(t, radius, line_color, direction : int):
+        t.pendown()
+        initial_color = t.pencolor()
+        t.pencolor(line_color)
+        t.circle(radius, extent= direction * 180)
+        t.pencolor(initial_color)
+        
+
+    t.penup()
+    t.goto(-515, -275)  
+    t.pendown()
+    draw_rectangle(t, 1030, 550, "lightgray")  
+    t.penup()
+    t.goto(-470, -250)  
+    t.pendown()
+    draw_rectangle(t, 940, 500, "lightgray") 
+    t.penup()
+    
+
+
+    t.penup()
+    t.goto(-470, -100)  
+    t.pendown()
+    draw_rectangle(t, 160, 200, "orange")  
+    t.penup()
+    t.goto(-470, -120)  
+    t.pendown()
+    draw_rectangle(t, 160, 240, "") 
+    
+    t.penup()
+    t.goto(-310,-100)
+    t.pendown()
+    draw_circle(t, 100, "") 
+    
+    t.penup()
+    t.goto(310, -100)  
+    t.pendown()
+    draw_rectangle(t, 160, 200, "orange")  
+    t.penup()
+    t.goto(310, -120)  
+    t.pendown()
+    draw_rectangle(t, 160, 240, "")
+    t.penup()
+    t.goto(0, 250)  
+    t.pendown()
+    t.goto(0, -250) 
+    t.penup()
+    
+    t.penup()
+    t.goto(310,-100) 
+    t.pendown()
+    draw_circle(t, 100, "")  
+    t.penup()
+    
+    t.goto(0, -50)
+    t.pendown()
+    draw_circle(t, 50, "orange")  
+    t.penup()
+    
+    t.goto(-470, -250)
+    draw_half_circle(t, 250, "white", 1) 
+    t.penup()
+    
+    t.goto(470, 250)
+    draw_half_circle(t, 250, "white", 1) 
+    
+    t.penup()
+    t.goto(-450, -60)
+    t.pendown()
+    t.goto(-450, 60)
+    t.goto(-450, 0)
+    t.goto(-440, 0)
+    t.penup()
+    t.goto(-440, -5)
+    draw_circle(t, 5, "white")
+
+    t.penup()
+    t.goto(450, -60)
+    t.pendown()
+    t.goto(450, 60)
+    t.goto(450, 0)
+    t.goto(440, 0)
+    t.penup()
+    t.goto(440, -5)
+    draw_circle(t, 5, "white")
+    
+
+
+# Call the function to draw the court
+draw_court()
+
 
 """
 11. (2 points) Write a function alogical(n) , that
@@ -162,5 +278,3 @@ def """
 def min_CAD_coins(price, payment) -> tuple[int, int, int, int, int]:
     change_cents = cad_cashier(price, payment)*100
     return change_cents//200, (change_cents % 200)//100, (change_cents%100)//25, (change_cents%25)//10, (change_cents%25%10)//5
-
-print(min_CAD_coins(14.22, 20.05))
