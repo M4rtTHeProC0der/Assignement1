@@ -8,6 +8,8 @@ def mh2kh(s) -> float:
 exists an integer c such that a^2 + b^2 = c^2. Write a function pythagorean_pair(a,b) that takes two
 integers a and b as input and returns True if a and b are pythagorean pair and False otherwise. """
 def pythagorean_pair(a, b) -> bool:
+
+
     return (a**2 + b**2)**0.5 % 1 == 0
 
 
