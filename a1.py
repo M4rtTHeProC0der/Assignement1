@@ -1,9 +1,15 @@
 """ 
 Question 1:  (2 points) Write a function mh2kh(s) that given the speed, s, expressed in miles/hour returns
 the same speed expressed in kilometres/hour. """
-
-def mh2kh(s) -> float:
+###################################################################
+# Question 1
+###################################################################
+def mh2kh(s : float) -> float:
+    """ s should be in miles/hour"""
     return s * 1.60934
+###################################################################
+# Question 2
+###################################################################
 """ 2. (2 points) Two numbers a and b are called pythagorean pair if both a and b are integers and there
 exists an integer c such that a^2 + b^2 = c^2. Write a function pythagorean_pair(a,b) that takes two
 integers a and b as input and returns True if a and b are pythagorean pair and False otherwise. """
@@ -11,8 +17,10 @@ def pythagorean_pair(a, b) -> bool:
 
 
     return (a**2 + b**2)**0.5 % 1 == 0
-
-
+round(32.342, 1)
+###################################################################
+# Question X
+###################################################################
 """ 3. (2 points) Write a function in_out(xs,ys,side) that takes three numbers as input, where side is
 non-negative. Here xs and ys represent the x and y coordinates of the bottom left corner of a
 square; and side represents the length of the side of the square. (Notice that xs, ys, and side
@@ -25,7 +33,9 @@ def in_out(xs,ys,side) -> bool:
     ux = float(input("Entrez la valuer de x : ")) 
     uy = float(input("Entrez la valuer de y : ")) 
     print(xs <= ux <= xs + side and ys <= uy <= ys + side)
-
+###################################################################
+# Question X
+###################################################################
 
 """"
 4. (2 points) Write a function safe(n) that takes a non-negative integer n as input where n has at
@@ -35,10 +45,16 @@ n is safe and False otherwise."""
 
 def safe(n) :
     return not( n//10 == 9 or n%9 == 0 or n % 10 == 9)
+###################################################################
+# Question X
+###################################################################
 """
 5. (2 points) Write a function quote_maker(quote, name, year) that returns a sentence, i.e. a
 string of the following form: In year, a person called name said: “quote” See the next
 Section 2 below for some examples of how your function must behave."""
+###################################################################
+# Question X
+###################################################################
 def quote_maker(quote, name, year) :
     print(f"In {year}, a person called {name} said: \"{quote}\" ")
 """
@@ -46,6 +62,9 @@ def quote_maker(quote, name, year) :
 The function should then print a sentence using the same format as specified in the previous
 question. (To do that, your solution must make a call to quote_maker function from the previous
 question to obtain a string that you then print)."""
+###################################################################
+# Question X
+###################################################################
 def quote_displayer():
     quote = input("Il a dit quoi? : ")
     person = input(" Qui l'a dit? : ")
@@ -60,7 +79,10 @@ it displays the result for player 1 as indicated in the examples given in Sectio
 that the user will only enter words: rock, paper or scissors in lower case. Recall that paper beats
 rock, rock beats scissors and scissors beat paper. If both players make the same choice, we have
 a draw."""
-def rps_winner():
+###################################################################
+# Question X
+###################################################################
+def rps_winners():
     player1 = input("PLayer 1 : ##########################\nRock paper or scissors? : ")
     player2 = input("PLayer 2 : ##########################\nRock paper or scissors? : ")
     p1_score = (player1 == "paper")*1 + (player1 == "scissors")*2
@@ -72,6 +94,9 @@ def rps_winner():
 """
 8. (2 points) Write a function fun(x) that takes as input a positive number x and solves the following
 equation for y and returns y. The equation is 104y=x+3."""
+###################################################################
+# Question X
+###################################################################
 def fun(x) :
     return (x+3)/104
 
@@ -82,6 +107,9 @@ person’s name and draws (using print function)
 a name plaque as shown in the examples given
 in Section 2 below. Recall that you may not use
 loops nor if/branching statements."""
+###################################################################
+# Question X
+###################################################################
 def ascii_name_plaque(name) :
     return "*"*(len(name)+4)+"\n*"+ " "*round((len(name)/2))+"*" +f"\n* {name} *" +"\n*"+ " "*round((len(name)/2))+"*" +"\n"+ "*"*(len(name)+4)
 
@@ -100,17 +128,12 @@ same colours, but you must use at least 2
 distinct colours to fill some regions of the
 court. Your figure does not have to be identical 
 to mine, but it should be close enough."""
-#function to draw and fill a recatangle
+
+###################################################################
+# Question X
+###################################################################
 import turtle
-def draw_rectangle(t, width, height, color):
-    t.fillcolor(color)
-    t.begin_fill()
-    for _ in range(2):
-        t.forward(width)
-        t.left(90)
-        t.forward(height)
-        t.left(90)
-    t.end_fill()
+
 
 def draw_court():
     # Setup turtle
@@ -118,10 +141,22 @@ def draw_court():
     screen.bgcolor("white")
     screen.setup(width=1080, height=720)
     t = turtle.Turtle()
-    t.speed(0)
+    t.speed(-10)
 
     # Helper functions
-
+    def draw_rectangle(t, width, height, color):
+        t.fillcolor(color)
+        t.begin_fill()
+    
+        t.forward(width)
+        t.left(90)
+        t.forward(height)
+        t.left(90)
+        t.forward(width)
+        t.left(90)
+        t.forward(height)
+        t.left(90)
+        t.end_fill()
 
     def draw_circle(t, radius, color):
         t.fillcolor(color)
@@ -231,6 +266,9 @@ not enough since 1.35 is bigger than 1. So we continue. 1.35/2=0.675. Since 0.67
 1, the answer is 3. In particular, these calculations determine that 5.4 needs to be divided by 2
 three times minimum in order to get a number that is less than or equal to 1. See Section 2 for
 more examples. Recall that you may not use loops nor if/branching statements."""
+###################################################################
+# Question X
+###################################################################
 import math
 
 def alogical(n) -> int:
@@ -244,8 +282,18 @@ return a real number with 2 decimal places representing the change the customer 
 Canadian dollars. Recall that in Canada, while the prices are expressed in pennies, the change is
 based on rounding to the closest 5 cents. See the examples in Section 2 for clarification and
 examples on how your function must behave."""
+###################################################################
+# Question 12
+###################################################################
+
 def cad_cashier(price, payment) -> float:
-    return round((payment - price)*2,1)/2
+    """
+
+    :param price: It is the price of the item
+    :param payment: this is payed by the customer, it should be non-negative and bigger than or equal to price. It should end with 0 or 5 cents.
+    :returns: It returns the amount of change in Canadian dollars rounded to the nearest 5 cents.
+    """
+    return round((payment - price)*20)/20
 
 
 
@@ -277,6 +325,19 @@ the optimal result (i.e. give the smallest number of coins). This is not automat
 the coin denominations were 1, 3 and 4 cents then to make 6 cents, the greedy algorithm would choose
 three coins: one 4-cent coin and two 1-cent coins whereas the optimal solution is two 3-cent coins.
 def """
+###################################################################
+# Question 13
+###################################################################
 def min_CAD_coins(price, payment) -> tuple[int, int, int, int, int]:
-    change_cents = cad_cashier(price, payment)*100
+    """
+
+    :param price: It is the price of the item
+    :param payment: this is payed by the customer, it should be non-negative and bigger than or equal to price. It should end with 0 or 5 cents.
+    :returns: It returns a tuple of five integers (t,l,q,d,n) that represent the smallest number of coins (toonies, loonies, quarters, dimes, nickels) that add up to the amount owed to the customer.
+    """
+    change_cents = cad_cashier(price, payment) *100
+    t = change_cents//200
+    change_cents = change_cents - 200 * t 
+    l = change_cents//100
     return change_cents//200, (change_cents % 200)//100, (change_cents%100)//25, (change_cents%25)//10, (change_cents%25%10)//5
+    return T, L, Q, D, N
