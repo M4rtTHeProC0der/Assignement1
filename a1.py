@@ -5,7 +5,11 @@ the same speed expressed in kilometres/hour. """
 # Question 1
 ###################################################################
 def mh2kh(s : float) -> float:
-    """ s should be in miles/hour"""
+    """
+    Convert a speed given in miles per hour (mph) to kilometers per hour (km/h).
+    :param s: Speed in miles per hour.
+    :returns: Equivalent speed in kilometers per hour.
+    """
     return s * 1.60934
 ###################################################################
 # Question 2
@@ -14,12 +18,19 @@ def mh2kh(s : float) -> float:
 exists an integer c such that a^2 + b^2 = c^2. Write a function pythagorean_pair(a,b) that takes two
 integers a and b as input and returns True if a and b are pythagorean pair and False otherwise. """
 def pythagorean_pair(a, b) -> bool:
-
+    """
+    Check if two integers form a Pythagorean pair. A Pythagorean pair (a, b) satisfies the equation 
+    a^2 + b^2 = c^2 for some integer c.
+    
+    :param a: First integer.
+    :param b: Second integer.
+    :returns: True if a and b form a Pythagorean pair, False otherwise.
+    """
 
     return (a**2 + b**2)**0.5 % 1 == 0
 round(32.342, 1)
 ###################################################################
-# Question X
+# Question 3
 ###################################################################
 """ 3. (2 points) Write a function in_out(xs,ys,side) that takes three numbers as input, where side is
 non-negative. Here xs and ys represent the x and y coordinates of the bottom left corner of a
@@ -30,11 +41,20 @@ function should print True if the given query point is inside of the given squar
 should print False. A point on the boundary of a square is considered to be inside the square. """
 #side >= 0
 def in_out(xs,ys,side) -> bool:
+    """
+    Check if a given query point is inside or on the boundary of a square defined by 
+    its bottom-left corner and side length.
+    
+    :param xs: x-coordinate of the bottom-left corner of the square.
+    :param ys: y-coordinate of the bottom-left corner of the square.
+    :param side: Length of the square's side (non-negative).
+    :returns: True if the query point is inside or on the boundary of the square, False otherwise.
+    """
     ux = float(input("Entrez la valuer de x : ")) 
     uy = float(input("Entrez la valuer de y : ")) 
     print(xs <= ux <= xs + side and ys <= uy <= ys + side)
 ###################################################################
-# Question X
+# Question 4
 ###################################################################
 
 """"
@@ -44,32 +64,46 @@ a 9 as a digit, or if it can be divided by 9. The function should test if n is s
 n is safe and False otherwise.""" 
 
 def safe(n) :
+    """
+    Determine if a number is "safe". A number is not safe if it contains a 9 as a digit or if it is divisible by 9.
+    
+    :param n: A non-negative integer with at most two digits.
+    :returns: True if the number is safe, False otherwise.
+    """
     return not( n//10 == 9 or n%9 == 0 or n % 10 == 9)
-###################################################################
-# Question X
-###################################################################
 """
 5. (2 points) Write a function quote_maker(quote, name, year) that returns a sentence, i.e. a
 string of the following form: In year, a person called name said: “quote” See the next
 Section 2 below for some examples of how your function must behave."""
 ###################################################################
-# Question X
+# Question 5
 ###################################################################
 def quote_maker(quote, name, year) :
-    print(f"In {year}, a person called {name} said: \"{quote}\" ")
+    """
+    Creates a sentence using a quote, the name of the person who said it, and the year it was said.
+    
+    :param quote: The quote.
+    :param name: The name of the person who said the quote.
+    :param year: The year the quote was said.
+    :returns: A sentence of the form "In [year], a person called [name] said: '[quote]'".
+    """
+    return f"In {year}, a person called {name} said: \"{quote}\""
 """
 6. (2 points) Write a function quote_displayer() that prompts the user for a quote, name, and year.
 The function should then print a sentence using the same format as specified in the previous
 question. (To do that, your solution must make a call to quote_maker function from the previous
 question to obtain a string that you then print)."""
 ###################################################################
-# Question X
+# Question 6
 ###################################################################
 def quote_displayer():
+    """
+    Prompt the user for a quote, name, and year, and display the formatted sentence using the quote_maker function.
+    """
     quote = input("Il a dit quoi? : ")
     person = input(" Qui l'a dit? : ")
     year = input("En quelle annee? : ")
-    print(f"In {year}, a person called {person} said: \"{quote}\" ")
+    print(quote_maker(quote, person, year))
 
 """
 7. (2 points) In this question you will write a function that determines and prints the result of a
@@ -80,9 +114,14 @@ that the user will only enter words: rock, paper or scissors in lower case. Reca
 rock, rock beats scissors and scissors beat paper. If both players make the same choice, we have
 a draw."""
 ###################################################################
-# Question X
+# Question 7
 ###################################################################
 def rps_winners():
+    """
+    Simulate a Rock, Paper, Scissors game between two players and determines the winner.
+    
+    :returns: A string indicating whether Player 1 wins, Player 2 wins, or if it's a draw.
+    """
     player1 = input("PLayer 1 : ##########################\nRock paper or scissors? : ")
     player2 = input("PLayer 2 : ##########################\nRock paper or scissors? : ")
     p1_score = (player1 == "paper")*1 + (player1 == "scissors")*2
@@ -95,9 +134,15 @@ def rps_winners():
 8. (2 points) Write a function fun(x) that takes as input a positive number x and solves the following
 equation for y and returns y. The equation is 104y=x+3."""
 ###################################################################
-# Question X
+# Question 8
 ###################################################################
 def fun(x) :
+    """
+    Solve the equation 104y = x + 3 for y and return the value of y.
+    
+    :param x: The value of x in the equation.
+    :returns: The value of y that solves the equation.
+    """
     return (x+3)/104
 
 
@@ -108,9 +153,15 @@ a name plaque as shown in the examples given
 in Section 2 below. Recall that you may not use
 loops nor if/branching statements."""
 ###################################################################
-# Question X
+# Question 9
 ###################################################################
 def ascii_name_plaque(name) :
+    """
+    Create an ASCII name plaque for a given name.
+    
+    :param name: The name to be displayed on the plaque.
+    :returns: A string representing the name plaque in ASCII art.
+    """
     return "*"*(len(name)+4)+"\n*"+ " "*round((len(name)/2))+"*" +f"\n* {name} *" +"\n*"+ " "*round((len(name)/2))+"*" +"\n"+ "*"*(len(name)+4)
 
 """
@@ -130,13 +181,16 @@ court. Your figure does not have to be identical
 to mine, but it should be close enough."""
 
 ###################################################################
-# Question X
+# Question 10
 ###################################################################
 import turtle
 
 
 def draw_court():
-    # Setup turtle
+    """
+    Draw a basketball court using Turtle graphics. The court should have at least two distinct colors.
+    """
+
     screen = turtle.Screen()
     screen.bgcolor("white")
     screen.setup(width=1080, height=720)
@@ -252,8 +306,7 @@ def draw_court():
     
 
 
-# Call the function to draw the court
-draw_court()
+
 
 
 """
@@ -267,11 +320,15 @@ not enough since 1.35 is bigger than 1. So we continue. 1.35/2=0.675. Since 0.67
 three times minimum in order to get a number that is less than or equal to 1. See Section 2 for
 more examples. Recall that you may not use loops nor if/branching statements."""
 ###################################################################
-# Question X
+# Question 11
 ###################################################################
 import math
 
 def alogical(n) -> int:
+    """
+    :n: is the input number where n is bigger or equal to 1.
+    :returns: It returns the amount of times we can divide n by 2 to get a number less than or equal to 1.
+    """
     return math.ceil(math.log2(n)) 
 
 
@@ -288,9 +345,8 @@ examples on how your function must behave."""
 
 def cad_cashier(price, payment) -> float:
     """
-
-    :param price: It is the price of the item
-    :param payment: this is payed by the customer, it should be non-negative and bigger than or equal to price. It should end with 0 or 5 cents.
+    :price: It is the price of the item
+    :payment: this is payed by the customer, it should be non-negative and bigger than or equal to price. It should end with 0 or 5 cents.
     :returns: It returns the amount of change in Canadian dollars rounded to the nearest 5 cents.
     """
     return round((payment - price)*20)/20
@@ -330,14 +386,9 @@ def """
 ###################################################################
 def min_CAD_coins(price, payment) -> tuple[int, int, int, int, int]:
     """
-
-    :param price: It is the price of the item
-    :param payment: this is payed by the customer, it should be non-negative and bigger than or equal to price. It should end with 0 or 5 cents.
+    :price: It is the price of the item
+    :payment: this is payed by the customer, it should be non-negative and bigger than or equal to price. It should end with 0 or 5 cents.
     :returns: It returns a tuple of five integers (t,l,q,d,n) that represent the smallest number of coins (toonies, loonies, quarters, dimes, nickels) that add up to the amount owed to the customer.
     """
     change_cents = cad_cashier(price, payment) *100
-    t = change_cents//200
-    change_cents = change_cents - 200 * t 
-    l = change_cents//100
     return change_cents//200, (change_cents % 200)//100, (change_cents%100)//25, (change_cents%25)//10, (change_cents%25%10)//5
-    return T, L, Q, D, N
