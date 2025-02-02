@@ -28,7 +28,6 @@ def pythagorean_pair(a, b) -> bool:
     """
 
     return (a**2 + b**2)**0.5 % 1 == 0
-round(32.342, 1)
 ###################################################################
 # Question 3
 ###################################################################
@@ -384,7 +383,7 @@ def """
 ###################################################################
 # Question 13
 ###################################################################
-def min_CAD_coins(price, payment) -> tuple[int, int, int, int, int]:
+def min_cad_coin(price, payment) -> tuple[int, int, int, int, int]:
     """
     :price: It is the price of the item
     :payment: this is payed by the customer, it should be non-negative and bigger than or equal to price. It should end with 0 or 5 cents.
